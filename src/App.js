@@ -1,25 +1,51 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// 1)
+// class Info extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       information: "this is ancient text",
+//     };
+//   }
+//   componentWillMount() {
+//     this.setState({ information: "this is modified text" });
+//   }
+//   render() {
+//     return <div>{this.state.information}</div>;
+//   }
+// }
+// export default Info
+
+
+// 2)
+class Color extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      color: "turquoise",
+    };
+  }
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({ color: "pink" });
+    }, 2500);
+  }
+  render() {
+    return (
+      <div className="mainContainer">
+        <div className="textContainer">
+          <p
+            style={{
+              color: this.state.color,
+            }}
+            className="mainText">
+            giraffe
+          </p>
+        </div>
+      </div>
+    );
+  }
 }
 
-export default App;
+export default Color;
